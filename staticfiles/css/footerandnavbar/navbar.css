@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400;1,500&display=swap');
+
+*{
+    
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    outline: none;border: none;
+    text-decoration: none; 
+    text-transform: capitalize;
+    transition: 0.2s linear;
+}
+
+html{
+    font-size: 16px;
+}
+
+.header{
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    border-bottom:0.15rem solid black ;
+    position: fixed;
+    top: 0;left: 0;right: 0;
+    height: 12vh;
+    background-size:cover ;
+    margin-bottom: rem;
+}
+
+.header .logo img {
+    height: 4.5rem;
+}
+
+
+.header .navbar a{
+    margin: 0 0.875rem ;
+    color: #fff;  
+    font-weight: bold;
+    font-size: 1rem;
+}
+.header .navbar a:hover{
+    color: rgb(233, 100, 11);
+    border-bottom: 0.1rem solid #964c07;
+    padding-bottom: 0.5rem;
+}
+
+
+
+
+.header .icons div {
+    color: white;
+    cursor: pointer;
+    font-size: 1.8rem;
+    margin-left: 1.5rem;  
+    transition: 0.4s; 
+}
+
+.header .icons div:hover{
+    color:rgb(233, 100, 11);
+}
+
+#menu-btn{
+    display: none;
+}
+
+.header .search-form{
+    position: absolute;
+    top: 115%; right: .0%;
+    background: var black;
+    width: 40rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top ;
+    cursor: pointer;
+}
+
+.header .search-form.active{
+    transform: scaleY(1);
+}
+.header .search-form input{
+    width: 70%;
+    height: 40% ;   
+    font-size: 1.6rem;
+    color: black;
+    padding: 0.5rem 0;
+    text-transform: none;
+    border: 0.1rem solid black;
+}
+
+
+.header .search-form label{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color: black;
+
+}
+.header .search-form label:hover{
+    color:  #d3ab7f;
+}
+
+
+.header .cart-items-container{
+    position: absolute;
+    top: 100%;right:-110% ;
+    height: calc(100vh -9.5rem );
+    width: 27.5rem;
+    background:white;
+    padding:0 1.5rem ;
+    border: 0.1rem solid #964c07;
+    }
+
+
+.header .cart-items-container.active{
+    right: 0;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header .cart-items-container .cart-item .fa-times{
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+}
+
+.header .cart-items-container .cart-item .fa-times:hover{
+    color: #964c07;
+}
+
+.header .cart-items-container .cart-item img{
+    height: 7rem; 
+    width: 13rem;
+     }
+.header .cart-items-container .cart-item .content-header h1{
+    font-size: 2rem;
+    color: black;
+    padding-bottom: 0.5rem;
+}
+    .header .cart-items-container .cart-item .content-header .price{
+    font-size: 1.5rem;
+    color: white;
+     }
+.btn-queries{
+    width: 100%;
+    margin:0.5rem 0 ;
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    font-size: 1.2rem;
+    color: #efe910ed;
+    background: black;
+    cursor: pointer;
+    border-radius: 2px;
+    font-weight: bold;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.btn-queries:hover{
+    letter-spacing: 0.1rem;
+}
+
+
+
+
+
+
+/* Media Queries  */
+@media(max-width:991px){
+    html{
+        font-size: 15px;
+    }
+    .header{
+        padding: 1.5rem 2rem;
+    }
+    #cart-btn, #search-btn{
+        font-size: 2rem;
+     }
+}
+@media(max-width:768px){
+    html{
+        font-size: 14.5px;
+    }
+    #menu-btn{
+        display: inline-block;
+    }
+    .header .navbar{
+        position: absolute;
+        top: 100%; right: -110%;
+        width: 30rem;
+        height: calc(100vh -9.5rem);
+        background:white ;
+        width: 27.5rem;
+    }
+    .header .navbar.active{
+        right: 0;
+    }
+    .header .navbar a{
+        color: black;
+        display: block;
+        margin: 1.5rem;
+        padding:0.5rem ;
+        font-size: 2rem;
+        width: 90%;
+    }
+
+    .header .search-form{
+        width: 90%; 
+        right: 2rem;
+     }
+     
+}
+@media(max-width:450px){
+    html{
+        font-size: 14px;
+    }
+    
+}
+
+
+
+

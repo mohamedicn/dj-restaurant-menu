@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400;1,500&display=swap');
+
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    outline: none;border: none;
+    text-decoration: none; 
+    text-transform: capitalize;
+    transition: 0.2s linear;
+}
+html {
+    font-size: 16px;
+}
+
+ body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .about-section {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .about-section h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .about-section p {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  
+  .team-section {
+    background-color: #fff;
+    padding: 50px;
+  }
+  
+  .team-section h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  .team-member img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  .team-member h3 {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+  
+  .team-member p {
+    font-size: 18px;
+    color: #777;
+  }
+  
+  .gallery-section {
+    background-color: #ffffff;
+    padding: 50px;
+  }
+  
+  .gallery-section h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .gallery img {
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    width: 20rem;
+    height: 37vh;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.1);
+    border-color: #555;
+    cursor: pointer;
+  }
+  
+
+
+/* Media Queries  */
+@media(max-width:1320px){
+    html{
+        font-size: 15.5px;
+    }
+
+}
+@media(max-width:991px){
+    html{
+        font-size: 15px;
+    }
+   
+}
+@media(max-width:768px){
+    html{
+        font-size: 14.5px;
+    }
+}
+@media(max-width:450px){
+    html{
+        font-size: 14px;
+    }
+}

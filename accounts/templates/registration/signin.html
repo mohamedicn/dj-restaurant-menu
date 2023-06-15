@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/accounts/login.css' %}">
+    <style>
+        
+        body {
+            background-image: url('static/img/foodmenu/login/2.jpg');
+            background:#222;
+        }
+    </style>
+    <title>Log-in Form</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="wrapper" >
+        <div class="form-wrapper sign-in">
+            <form method="POST">
+                {% csrf_token%}
+                <h2 class="title">Log-in</h2>
+                <div class="input-group">
+                    <input type="text" name="username" required id="userName" placeholder="UserName">
+                    <label for="">UserName</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" required id="password" placeholder="Password">
+                    <label for="">Password</label>  
+                </div>
+                <div class="remember">
+                    <label for=""><input type="checkbox">Remember me</label>
+                </div>
+                <button type="submit" id="login" name="signin" >Log-in</button>
+                <div class="signUp-link signUpBtn-link">
+                    <p>Do not have an account ? <a href="#" id="sign-in">Sign-Up</a></p>
+                </div>
+            </form>
+        </div>
+        <!-- ============================================== -->
+        <div class="form-wrapper sign-up">
+            <form method="POST">
+                {% csrf_token %}
+                <h2>Sign-Up</h2>
+                {% if messages %}
+                {% for message in messages %}
+                        <div class="alert alert-danger" style=" background: #ff000024;
+                        text-align: center;
+                        padding: 5px;
+                        color: white;" role="alert">{{message}}</div>
+                    {% endfor %}
+                {% endif %}
+                <div class="input-group">
+                    <input type="text" name="username" required placeholder="UserName">
+                    <label for="">UserName</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" required placeholder="Email">
+                    <label for="">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" required placeholder="Password">
+                    <label for="">Password</label>
+                </div>
+                <div class="remember">
+                    <label for=""><input type="checkbox" id="">  I agree to the terms & conditions </label>
+                </div>
+                <button name="signup" type="submit">Sign-Up</button>
+                <div class="signUp-link signInBtn-link">
+                    <p>ِAlready have an account ? <a href="#">Log-in</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'js/accounts/login.js' %}"></script>
+    
+    {% comment %} {% include 'footer.html' %} {% endcomment %}
+</body>
+</html>
+

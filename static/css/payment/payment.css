@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400;1,500&display=swap');
+
+*{
+    
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    outline: none;border: none;
+    text-decoration: none; 
+    text-transform: capitalize;
+    transition: 0.2s linear;
+}
+
+html{
+    font-size: 16px;
+}
+
+
+.continuer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 4.8rem;
+}
+.title {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title h2{
+font-size: 2rem;
+font-style: italic;
+border-bottom: 0.15rem solid #ff8000;
+padding-bottom: 0.15rem;
+color: white ;
+}
+ .right  {
+    width: 38rem;
+    height: 88vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+/* Styles for the product container */
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent ;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 12rem;
+    height: 20vh;
+  }
+  
+  /* Styles for the product name */
+  .product h3 {
+    color: white ;
+    font-size: 1rem;
+    margin: 0.3rem 0 ;
+  }
+  
+  /* Styles for the product price */
+  .product section {
+    color: white ;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .product section::before {
+    content: 'Price : ';
+  }
+  .product section::after {
+    content: ' $';
+  }
+  /* Styles for the product category */
+  .product article {
+    color: white ;
+    font-size: 1rem;;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .product article::before {
+    content: 'Category : ';
+  }
+  
+
+.product button {
+    padding: 8px;
+    background-color: #ff8000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;    
+    font-weight: bold;
+}
+.product button:hover{
+    transform: scale(1.1);
+    background-color: black;
+    color: #ff8000;
+    border: 0.1rem solid #fff;
+}
+  
+.left {
+    width: 38rem;
+    height: 88vh;
+}
+.left .title-left , .total-price{
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left .title-left h3{
+    color: white ;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.left .total-products{
+    color: white ;
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+
+#payment-methods {
+    /* margin-left: 3rem; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  #payment-methods img {
+    width: 8rem;
+    height:6rem;
+}
+#payment-methods img:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+  }

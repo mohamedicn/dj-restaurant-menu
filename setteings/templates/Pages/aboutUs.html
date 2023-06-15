@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/setteings/aboutus.css' %}" />
+    <title>About Us</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="about-section" style="padding-top: 5rem">
+      <h2>About Us</h2>
+
+      
+
+      {% for des in description %}
+        <p>{{ des.description }}</p>
+      {% endfor %}
+    </div>
+
+    <div class="team-section">
+      <h2>Our Team</h2>
+      <div class="team-members">
+        {% for one in OurTeam %}
+        <div class="team-member">
+          <img src="{{ one.image.url }}" alt="{{one.name}}"/>
+          <h3>{{one.name}}</h3>
+          <p>{{one.work}}</p>  
+        </div>
+        {% endfor %}
+      
+      </div>
+    </div>
+
+    <div class="gallery-section">
+      <h2>Gallery</h2>
+
+      <div class="gallery">
+        {% for img in gallery %}
+          <img src="{{ img.image.url }}"/>
+          {% endfor %}
+      </div>
+      
+
+
+    </div>
+
+    <script src="{% static 'js/setteings/aboutus.js' %}"></script>
+    {% include 'footer.html' %}
+  </body>
+</html>

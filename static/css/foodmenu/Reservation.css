@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+/* font-family: 'Lobster', cursive; */
+
+*{
+    
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;border: none;
+    text-decoration: none; 
+    text-transform: capitalize;
+    transition: 0.2s linear;
+    list-style-type: none;
+}
+
+html{
+    font-size: 16px;
+}
+
+
+.continuer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #ffffff; */
+    padding: 0 1.2rem;
+    /* background-image: url('static/img/foodmenu/image-Reservation/0.jpg'); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-top: 4.3rem;    
+}
+
+
+.title{
+    width: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title h2{
+    font-style: italic;
+}
+
+.all-info{
+    width: 100%;
+    height: 100vh;
+    display: flex;  
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.all-info .title h3{
+    font-size: 1.1rem;
+    font-style: italic;
+}
+.inside-info{
+    width: 25rem;
+    height: 75vh;
+    border: 2px solid darkgray;;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 50px darkgray;
+}
+
+
+
+#addresses{
+    width: 25rem;
+    height: 75vh;
+    border: 2px solid darkgray;;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 50px darkgray;
+}
+#addresses .address-title{
+    font-style: italic;
+    font-size: 1.6rem;
+}
+
+
+.inside-addresses{
+    width: 24rem;
+    height: 16vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+address {
+    padding: .5rem 1rem;
+    cursor: pointer;
+    background-color:  darkgray;
+    border-radius: 1rem;
+    font-weight: 600;
+}
+
+address:hover{
+    padding: .5rem 1.5rem;
+    color: brown;
+}
+
+
+#result {
+width: 100%;
+height: 9vh;
+border-radius: 1rem;
+font-weight: 600;
+letter-spacing: 0.1rem;
+}
+
+
+/* Add The style  map here */
+
+.inside-info-map{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inside-info-map h3{
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+    
+  #map-section {
+    width: 50%;
+  }
+
+  #user-info {
+    width: 50%;
+    background-color:transparent;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } 
+  #user-info h2{
+    align-items: center;
+  }
+form{
+    display: flex;
+    flex-direction: column;
+    /* box-shadow: 0 0 50px darkgray; */
+    border-radius:0 0 1rem 1rem ;
+    width:25rem;
+    height:65vh;
+    border: 0.1rem solid darkgray;
+    border-top: none;
+}
+form label{
+    width: 22rem;
+    margin: 1rem auto 0 auto;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    font-style: italic; 
+}
+form input{
+    background-color: transparent;
+    border-bottom: 0.2rem solid white;;
+    width: 22rem;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: .1rem auto 1rem auto;
+    font-style: italic;
+    color: #fff;
+}
+
+.info-butt{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+
+.info-butt button{
+    width: 10rem;
+    padding: 0.35rem 1.2rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+     transition: 0.6s;
+}
+.info-butt button:hover{
+cursor: pointer;
+width: 12rem;
+letter-spacing: .1rem;
+background-color: darkgray;
+color: #ffffff;
+}

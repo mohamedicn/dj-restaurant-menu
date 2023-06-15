@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/footerandnavbar/footer.css' %}">
+    <style>
+      .footer{
+        background-image: url('static/img/footerandnavbar/image-footer/footer-bg.jpg');
+        background-position: left left; 
+      }
+    </style>
+    
+    <title>Footer</title>
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__row">
+            <div class="footer__column">
+              <h3 class="footer__title">The Meat Factory</h3>
+              <p class="footer__text">Lorem ipsum dolor df sididunt  
+                 ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="footer__column">
+              <h3 class="footer__title">Links</h3>
+              <ul class="footer__list">
+                <li><a href="{% url 'foodmenu:home' %}" class="footer__link">Home</a></li>
+                <li><a href="{% url 'foodmenu:booktable' %}" class="footer__link">Book A Table</a></li>
+                <li><a href="{% url 'foodmenu:restaurantMenu' %}" class="footer__link">Restaurant Menu</a></li>
+                <li><a href="{% url 'foodmenu:reservation' %}" class="footer__link">Reservations</a></li>
+                {% comment %} <li><a href="{% url 'setteings:aboutus' %}" class="footer__link">About Us</a></li> {% endcomment %}
+               
+              </ul>
+            </div>
+            <div class="footer__column">
+              <h3 class="footer__title">Opening Hours</h3>
+              <p class="footer__text">Mon - Fri: 9am - 9pm</p>
+              <p class="footer__text">Sat - Sun: 10am - 8pm</p>
+            </div>
+            <div class="footer__column">
+              <h3 class="footer__title">Location</h3>
+              <p class="footer__text">123 Main St , fs1215</p>
+              <p class="footer__text">New York, NY 10001</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__text">&copy; 2023 The Meat Factory. All rights reserved</p>
+        </div>
+      </footer>
+      
+      <script src="{% static 'js/footerandnavbar/footer.js' %}"></script>
+</body>
+</html>

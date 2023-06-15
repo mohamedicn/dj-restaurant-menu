@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="images/barbecue.jpg" type="image/x-icon">
+<!-- Link for font font-awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/foodmenu/Restmenu.css' %}">
+<style>
+    
+body {
+    background-image: url('static/img/foodmenu/image-Restmenu/1.jpg');
+    background-repeat: no-repeat;
+
+}
+</style>
+<title>Restaurant Menu</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container" style="padding-top:4.5rem;">
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>        
+        <div class="title">
+            <h2>Restaurant Menu</h2>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                . Modi optio quis, deleniti voluptate ipsa perferendis
+                 quaerat distinctio molestias quod esse sint, commodi 
+                 itaque in quo ab iusto natus. Similique, quidem nisi debitis
+                  neque, unde ipsam.
+            </p>
+            
+        </div>
+        
+        
+        <div class="content">
+            <div class="list">
+                <ul>
+                    <li data-color=".All">All</li>
+                    <li data-color=".featured">Featured</li>
+                    <li data-color=".Special">Today's Special</li>
+                    <li data-color=".Arrivals">New Arrivals</li><br>
+                </ul>    
+            </div>
+            
+            
+            <div class="box_flex">
+                {% for rest in restaurantmenu %}
+                    {% if rest.Category == "Featured" %}
+                        <div class="box All featured">
+                            <div class="box_img">
+                                <img src="{{ rest.Image.url }}" class="myImage">
+                            </div>
+                            <div class="text">
+                                <h3>{{ rest.Name }}</h3>
+                                <hr>
+                                <!-- <input id="Price" class="input--style-4" type="number" name="qty" value="1" > -->
+                                <input type="hidden" name="product" value="{{product_detail.slug}}">
+                                <input type="hidden" name="product_price" value="{{ rest.Price }}">
+                                <section id="Price">${{ rest.Price }}</section>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <article>Category: {{ rest.Category }}</article>
+                                <div class="btn-Add">
+                                    <form action="{% url 'foodmenu:add_to_cart' %}">
+                                        <input class="input--style-4" type="number" name="qty" value="1" >
+                                        <input type="hidden" name="product" value="{{rest.slug}}">
+                                        <input type="hidden" name="product_price" value="{{rest.Price}}">
+                                        <button>Add</button>
+                                    </form>
+                                    <button>Decrease</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    {% elif rest.Category == "Special" %}
+                        <div class="box All Special">
+                            <div class="box_img">
+                                <img src="{{ rest.Image.url }}" class="myImage">
+                            </div>
+                            <div class="text">
+                                <h3>{{ rest.Name }}</h3>
+                                <hr>
+                                <section id="Price">${{ rest.Price }}</section>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <article>Category: {{ rest.Category }}</article>
+                                <div class="btn-Add">
+                                    <button">Add</button>
+                                    <button">Decrease</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="box All Arrivals">
+                            <div class="box_img">
+                                <img src="{{ rest.Image.url }}" class="myImage">
+                            </div>
+                            <div class="text">
+                                <h3>{{ rest.Name }}</h3>
+                                <hr>
+                                <section id="Price">${{ rest.Price }}</section>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <article>Category: {{ rest.Category }}</article>
+                                <div class="btn-Add">
+                                    <button">Add</button>
+                                    <button">Decrease</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="alert" id="alertBox"></div>
+            <div class="butfood">
+
+                    <button type="button" class="btnone" onclick="OpenPopup()">
+                        <a class="baynow">Buy Now(<span id="mySpan">0</span>)</a>
+                    </button>
+
+                <div class="popup" id="popup">
+                    <img src="{% static 'img/foodmenu/image-Reservation/0.jpg' %}" alt="My Image">
+                    <h2>Would you like to deliver selected foods?</h2>
+                    <p>If you want to connect, click Yes Otherwise press no</p>
+                    <a href="{% url 'foodmenu:reservation' %}"  onclick="ClosePopup()">Yes</a>
+                    {% comment %} w<a href="{% url 'payment:payment' %}" onclick="ClosePopup()">No</a> {% endcomment %}
+                    <a onclick="ClosePopup()">Exit</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <script src="{% static 'js/foodmenu/Restmenu.js' %}"></script>
+    {% include 'footer.html' %}
+</body>
+</html>

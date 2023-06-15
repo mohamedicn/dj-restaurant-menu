@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400;1,500&display=swap');
+
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    outline: none;border: none;
+    text-decoration: none; 
+    text-transform: capitalize;
+    transition: 0.2s linear;
+}
+html {
+    font-size: 16px;
+    
+}
+
+
+
+/* Start Book A Table */
+.container{
+    width: 100%;
+    height: 113vh;
+    background-image: url('../book_a_table/book/Book.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.header-book{
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-book h2{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.container-inside{
+    width: 100%;
+    height:88vh;
+    display: flex;
+    justify-content: space-around;
+align-items: center;
+
+}
+.left-part , .right-part,.address-table{
+    width: 32%;
+    height: 78vh;
+    display: flex;
+    flex-direction:column ;
+
+    
+}
+.left-part h3 {
+    margin: 1rem 0rem;
+    color: #fff;
+    font-weight: 400;
+}
+.left-part p{
+    margin: 0.2rem  0rem ;
+    line-height: 1.5;
+    color: #fff;
+    font-weight: 500
+
+}
+.left-part .paragraph-book{
+    width: 85%;
+    margin-top: 1rem
+}
+.left-part ul li{
+    list-style-type: none;
+    color: #fff;  
+}
+.left-part ul li a{
+    color: lightseagreen;
+}
+
+
+
+.right-part{
+    align-items: center;
+
+}
+.right-part form {
+    width: 100%;
+    height: 76vh;
+    padding:1rem;;
+    border: 1px solid #bf6109;
+    border-radius: 5px;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+
+}
+.right-part label {
+    display: block;
+    /* margin-top: 0; */
+    margin-bottom: 0.5rem;
+    color: #964c07;
+    font-weight: 600;
+}
+.right-part label::first-letter{
+    color: rgb(21, 46, 81);
+    font-size: 1.2rem;
+}
+.right-part input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="text"]{
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.right-part input[type="text"]{
+    padding:0.5rem 0.9rem;
+}
+.right-part button[type="submit"] {
+    background-color: #bf6109;
+    width: 80%;
+    color: black;
+    padding:0.2rem 2rem;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10%;
+    margin-top: 1.3rem;
+    
+}
+.right-part button[type="submit"]:hover {
+    letter-spacing: 0.015rem;
+    color: #fff;
+    background-color:  rgb(0, 0, 0); 
+    font-weight: 600;
+    border: 0.1rem solid #FFF;
+    letter-spacing: .1rem;
+}
+.address-table{
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+z-index: 1;
+}
+.address-table h3{
+    color: #fff;
+    margin-top: -3rem;
+}
+.address-table .location-table{
+width: 100%;
+height: 75vh;
+border: 2px solid #eee;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+z-index: 1;
+position: relative;
+
+}
+.address-table .location-table::before {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: -1.8%;
+    width: 2%;
+    height: 20%;
+    background-color: #fff;
+    border: 2px solid #000;
+}
+.address-table .location-table::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    right: -1.8%;
+    width: 2%;
+    height: 20%;
+    background-color: #fff;
+    border: 2px solid #000;
+}
+
+.address-table .location-table button{
+    margin: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+    width: 3.8rem;
+    background-color:rgb(49, 25, 25);
+    border: 0.1rem solid #eee;
+    height: 2.5rem;
+    padding: 0.3rem 0; 
+    border-radius: .1rem;
+    font-weight: 800;
+    color: #964c07;
+}
+.address-table .location-table button:hover{
+cursor: pointer;
+letter-spacing: 0.1rem;
+background-color: #964c07;
+color: #Fff;
+}
+
+
+
+/* Ends Book A Table */
+/* Media Queries  */
+@media(max-width:991px){
+    html{
+        font-size: 15px;
+    }
+    .container-inside{
+        flex-direction: column;
+    }
+    
+    .left-part , .right-part{
+        width: 90%;
+        height: 42.5vh;
+    }
+    .left-part h3,p{
+        margin-top: 0.2rem;
+    }
+    .left-part img{
+        height: 13vh;
+        width: 90%;
+        margin-left: 0rem;
+    }
+    .right-part{
+        display: flex;
+        align-items: center;
+    }
+    .right-part  form {
+        margin: 0rem auto;
+        height: 40vh;
+        width: 95%;
+    }
+    .right-part label {
+        padding-bottom: 0.3rem;
+    }
+    .right-part input[type="number"],
+    input[type="date"],
+    input[type="time"] {
+       padding: 0.8rem;
+       margin-bottom: 0.3rem;
+}
+    .right-part .paragraph-book,h3 ,p{
+        font-size: 1.2rem;
+    }
+
+
+}
+@media(max-width:768px){
+    html{
+        font-size: 14.5px;
+    }
+    
+}
+@media(max-width:450px){
+    html{
+        font-size: 14px;
+    } 
+}

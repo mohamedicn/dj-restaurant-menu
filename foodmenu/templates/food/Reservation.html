@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/foodmenu/Reservation.css' %}">
+    <style>
+      .continuer{
+        background-image: url('static/img/foodmenu/image-Reservation/0.jpg');
+         
+      }
+    </style>
+    <title>Food Delivery</title>
+</head>
+<body>
+  {% include 'navbar.html' %}
+
+        
+  
+  
+  <div class="continuer">
+    <div class="title">
+        <h2>Food Delivery</h2>
+    </div>
+  <div class="all-info">
+    <div class="inside-info">
+
+      <!-- Add The map here -->
+      <div class="inside-info-map">
+        <h3>google map Address</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11529.732311296646!2d37.04902321100238!3d36.587123619598756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152fc3e3fef7d691%3A0x98db07e36dca7312!2z2YXYt9i52YUg2KjZiNin2KjYqSDYrdmE2Kg!5e1!3m2!1sar!2s!4v1682593823562!5m2!1sar!2s"
+         width="100%" height="420px" style="border:0;" allowfullscreen="" loading="lazy"
+         referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    
+
+
+    
+      <div id="addresses">
+        <h2 class="address-title">Static Address</h2>
+        <div class="inside-addresses">
+            <address>Address One</address>
+            <address>Address Two</address>
+        </div>
+        <div class="inside-addresses">
+            <address>Address Three</address>
+            <address>Address Four</address>
+        </div>
+        <div class="inside-addresses">
+            <address>Address Five</address>
+        </div>
+        <div class="inside-addresses">
+            <p id="result"></p>
+        </div>
+      </div>
+      
+
+    <div class="inside-info"> <section id="user-info">
+      <div class="title">
+        <h3>User Information</h3>
+      </div>
+      <form method = "POST">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder=" Your Name"/>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address-from" name="address" required  placeholder=" Your Address"/>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required  placeholder=" Your Phone"/>
+
+        <label for="text">Notes If Any:</label>
+        <input type="text" id="text" name="text"  placeholder=" Notes If Any"/>
+
+        <div class="info-butt">
+            <button type="submit">Submit</button>
+        </div>
+      </form>
+    </section></div>
+   
+  </div>
+</div>
+
+  <script src="{% static 'js/foodmenu/Reservation.js' %}"></script>
+    {% include 'footer.html' %}
+</body>
+</html>

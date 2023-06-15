@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+/* font-family: 'Lobster', cursive; */
+
+*{
+    
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;border: none;
+    text-decoration: none; 
+    text-transform: capitalize;
+    transition: 0.2s linear;
+    list-style-type: none;
+}
+
+html{
+    font-size: 16px; 
+}
+.container{
+    width: 100%;
+    
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+  
+
+.container .title{
+    width: 60%;
+    margin: 0 auto 1.5rem auto;
+    text-align: center;
+}
+
+.container .title h2{
+    font-family: 'Lobster', cursive;
+    font-size: 3rem;
+    margin-bottom: 1.3rem;
+    letter-spacing: 0.2rem;
+    color: #ffffff;
+}
+
+.container .title p{
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 550;
+    width: 90%;
+
+}
+
+.content .list{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+        
+}
+.content .list ul{
+display: flex;
+}
+.content .list li{
+    margin: 0px 1rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: .3s ease-in-out;
+    position: relative;
+    color: white ;
+}
+
+.content .list li::after{
+    content: "";
+    position: absolute;
+    bottom: -0.2rem;
+    width: 0%;
+    /* height: 0.15rem; */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff8000;
+    transition: .4s ease-in-out;
+    color: white ;
+}
+
+.content .list li:hover::after{
+    width: 10%;
+}
+
+.content .list li:first-child{
+    color:#ff8000;
+}
+
+.box_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.box{
+    width: 32%;
+    background: transparent;
+    border-radius:0.1rem;
+    border: #000 solid 1px;
+    padding: 10px;
+    /* box-shadow: 0 0 50px rgb(75, 74, 74); */
+    background-color: #bebebe82;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    animation: movement 1s ease-in-out;
+    display: none;
+}
+@keyframes movement{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.box .box_img{
+    width: 35%;
+    text-align: center;
+}
+.box_img img{
+    width: 8rem;
+    height: 8rem;
+    transition: 0.2s;
+    border-radius: 0.2rem;
+}
+.box_img img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.box .text{
+    text-align: left;
+    width: 60%;
+}
+
+.text h3{
+    text-transform: capitalize;
+    color: #0f0501;
+    font-weight: 700;
+    /* font-style: italic; */
+    letter-spacing: 0.1rem;
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
+}
+
+.text hr{
+    width: 4.3rem;
+    background:#ff8000;
+    height: 3px;
+    margin: 5px 0px 10px 0px;
+}
+
+.text section{
+    font-weight: 700;
+    margin-bottom: -0.3rem;
+    color: #d1c9c9;
+}
+.text .stars{
+    margin-bottom: -2px;
+}
+.text .stars i{
+    font-size: 13px;
+    color: #ff8000;
+}
+.text article{
+    font-size: 15px;
+    font-weight: 550;
+    font-style: italic;
+    color: #d1c9c9;
+
+}
+.text .btn-Add{
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    align-items:center;
+    
+}
+
+.text .btn-Add button{
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #ff8000;
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-right: 1rem;
+}
+.text .btn-Add button:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+
+.butfood{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.butfood button{
+    font-size: 1.3rem;
+    padding: 0.3rem 1rem;
+    border-radius: 1rem;
+    font-weight: 550;
+    margin: 1rem 0;
+    border: none;
+    background-color: #ff8000;
+    color: #fff;
+}
+.butfood button .baynow{
+    color: #000;
+}
+
+.butfood button:hover{
+    color: #000;
+    background-color: #fff;
+    cursor:pointer;
+}
+
+
+
+.btn{
+    padding: 0.1rem 3rem;
+    border: 0rem;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 1.4rem;
+}
+
+
+.popup{
+    width: 40rem;
+    background-color: #4e2600;
+    border-radius: 1rem;
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    text-align: center;
+    padding: 0 2rem 2rem ;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.3s,top 0.3s;
+}
+
+.open-popup{
+    visibility:visible ;
+    top: 60%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+    width: 12rem;
+    margin-top: -3rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+}
+
+.popup h2{
+    font-size: 2rem;font-weight: 600;
+    margin: 0.1rem;
+    color: #fff;
+
+}
+.popup p{
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.popup a{
+padding: 0.3rem 4rem;
+background: #ff8000;
+color: #fff;
+outline: none;
+border-radius: 2rem;
+cursor: pointer;
+box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+}
+
+.popup a:hover{
+    padding: 0.3rem 6rem;
+    background-color: #000;
+    color: #ff8000;
+}
+
+
+.alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.3rem;
+    background-color: #ff8000;
+    color: black;
+    font-weight: 500;
+    font-size: 1rem;
+    z-index: 1;
+    border-radius: 1rem;
+    border:0.2rem solid #000;
+  }
+  
+  .alert.show {
+    display: block;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries  */
+@media(max-width: 1320px){
+    .box{
+        width: 49%;
+    }
+}
+@media(max-width: 991px){
+    .container .title{
+        width: 80%;
+    }
+    .box .box_img{
+        text-align: left;
+    }
+    .box_img img {
+        width: 170px;
+        height: 170px;
+    }
+    .box{
+        width: 100%;
+    }
+    .box .text{
+        width: 70%;
+    }
+}

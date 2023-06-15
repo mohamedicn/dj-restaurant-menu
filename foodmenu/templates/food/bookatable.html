@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/foodmenu/bookatable.css' %}">
+    <style>
+
+        .container{
+            
+            background-image: url('static/img/foodmenu/book/Book.jpg');
+        }
+
+    </style>
+    <title>Page Book A Table</title>
+</head>
+<body>
+     {% include 'navbar.html' %} 
+    <!-- Start Book A table -->
+    <div class="container" style="padding-top:5rem ;">
+
+        
+        <div class="header-book" >
+            <h2>BOOk A TABLE</h2>
+        </div>
+
+        <div class="container-inside">
+
+            <div class="left-part">
+                <h3>Opening Hours:</h3>
+                <p>Monday-Friday<br>
+                    11:00 AM - 09:00 PM</p>
+    
+                <h3>Additional Info:</h3>
+            <ul class="list-unstyled">
+                <li>
+                <p>Phone : </p><a href="">+963-968-331-979</a>
+                </li>
+                <li>
+                <p>Address : </p>Manhattan, New York,(<a href="">Map</a>)
+                </li>
+            </ul>
+    
+            <p class="paragraph-book">Here you can add details that will be displayed
+                 for visitors on the reservation page, such as dgdsgeri 
+                 an explanation about the restaurant, restaurantdd  
+                  location. Lorem ipsum dolor sit 
+                  amet consecteturq adipisicing elit. Idfsfsfs
+                  nventore, quidem oditsddq facilis quae nesc
+                  iunt corporis odio neque tenetur repellendu
+                  s velit ducimus aut ipsum a ex abdfdqq</p>
+             
+    
+    
+            
+        </div>
+    
+        <div class="address-table">
+            <h3>Click On Table The ID</h3>
+            <div class="location-table">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>7</button> 
+                <button>8</button>
+                <button>9</button>
+                <button>10</button>
+                <button>11</button>
+                <button>12</button>
+                <button>13</button>
+                <button>14</button>
+                <button>15</button>
+                <button>16 </button>
+                <button>17 </button>
+                <button>18 </button>
+                <button>19 </button>
+                <button>20 </button>
+                <button>21 </button>
+                <button>22 </button>
+                <button>23 </button>
+                <button>24 </button>
+            </div>
+        </div>
+
+
+    <div class="right-part">
+                
+        <form id="booking-form" method = "POST">
+            {% csrf_token %}
+            <label for="table-size">Choose Table Size:</label>
+            <input type="number" id="table-size" name="table-size" min="1" max="10" required placeholder="Choose Table Size">
+            <label for="booking-date">Choose a Day:</label>
+            <input type="date" id="booking-date" name="booking-date" required >
+            <label for="booking-time">Choose a Time:</label>
+            <input type="time" id="booking-time" name="booking-time" required>
+            <label for="booking-time">Choose Address Table:</label>
+            <input type="text" id="text-table" name="text-table" required placeholder="ID">
+            <label for="Notes">Notes if any</label> 
+            <input type="text" id="text-table" name="text-notes" placeholder="Notes if any ">
+            <button type="submit" value="Make Order" name="bookatable">Make Order</button>
+            
+        </form>    
+
+    </div>
+    </div>
+
+
+    <!-- Ends Book A Table -->
+
+    <!-- Link File JavaScript -->
+    <script src="{% static 'js/foodmenu/bookatable.js' %}"></script>
+
+    {% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/payment/payment.css' %}">
+    <style>
+        .continuer{
+            background-image: url('static/img/foodmenu/image-home/2.jpg');
+        }
+    </style>
+    <title>Payment</title>
+</head>
+{% include 'navbar.html' %}
+<body>
+        <div class="continuer" id="continuer">
+
+            <div class="title">
+                <h2> Page Payment</h2>
+            </div>
+            <div class="right" id="right">
+                    {% comment %} <div id="menu-container"></div> {% endcomment %}
+            </div>
+            <div class="left">
+                <div class="total-price"> 
+                    <p id="total-products" class="total-products"></p> 
+                </div>
+                <div class="title-left">
+                    <h3>How Would You Payment</h3>
+                </div>
+
+                <div id="payment-methods">
+                    <a href="https://www.paypal.com"><img src="{% static 'img/payment/paypal.png' %}" alt="PayPal"></a>
+                    <a href="https://www.pttbank.com"><img src="{% static 'img/payment/ptt.jpg' %}" alt="PTT"></a>
+                    <a href="https://www.mastercard.com"><img src="{% static 'img/payment/mastercard.png' %}" alt="Mastercard"></a>
+                  </div>
+                  
+
+            </div>
+            <div style="height: 300px;width:530px; background-color:red;">
+                
+                {% for detail in orderdetails  %}
+                    <label>name: {{detail.product}}</label>
+                    <label>cost: {{detail.cost}}</label>
+                    <label>quantity: {{detail.quantity}}</label>
+                {% endfor %}
+                    
+            </div>
+        </div>
+        {% include 'footer.html' %}
+        <script src="{% static 'js/payment/payment.js' %}"></script>
+    </body>
+</html>

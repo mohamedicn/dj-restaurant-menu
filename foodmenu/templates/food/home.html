@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/foodmenu/stylehome.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Restaurant Home</title>
+    <style>
+        .big-bg{
+            background-image: url('static/img/foodmenu/image-home/2.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div class="beg-info">
+    <div class="info-one">
+        <div>
+            <div class="fa fa-solid fa-envelope"></div> 
+            <span>Info@gmail.com</span>
+        </div>
+        <div>
+            <div class="fa-solid fa-clock"></div>
+            <span>Mon-Sat : 08:00- 23:00</span>
+        </div>
+    </div>
+
+    <div class="info-one">
+        <marquee>
+            <span >lorem</span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi eius minus ab.
+        </marquee>
+    </div>
+    <div class="info-one">
+
+        <div class="fas fa-shopping-cart"></div>
+        <span>Cart : 0 Items - $0:00</span>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="info-one">
+        <div class="info-one">
+            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="info-one">
+        <a href="{% url 'accounts:signin' %}">Sing IN</a>
+    </div>
+    {% endif %}
+    </div>
+
+
+    <header>
+        {% load static %}
+        <div class="logo">
+            <img src="{% static 'img/foodmenu/image-home/logo.png' %}" alt="My Image">
+        </div>
+        <nav>
+            <ul>
+                <li><a  href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'booktable' %}">Book A Table</a></li>
+                <li><a href="{% url 'restaurantMenu' %}">Restaurant Menu</a></li>
+                <li><a href="{% url 'reservation' %}">Reservation</a></li>
+                <li><a href="{% url 'setteings:aboutus' %}">About Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="link">
+            <a href="{% url 'restaurantMenu' %}">Shop Now</a>
+        </div>
+    </header>
+    <div class="big-bg">
+        {% if user.is_authenticated %}
+        <div class="Welcome">
+            <h3 class="Welcome-user">Welcome dear {{user}} to our restaurant The Meal Factory We wish comfortable use</h3>
+        </div>
+        {% endif %}
+    </div>
+
+<script src="{% static 'js/foodmenu/home.js' %}"></script>
+{% include 'footer.html' %}
+</body>
+</html>
