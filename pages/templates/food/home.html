@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Restaurant Home</title>
+</head>
+<body>
+    <div class="beg-info">
+    <div class="info-one">
+        <div>
+            <div class="fa fa-solid fa-envelope"></div> 
+            <span>Info@gmail.com</span>
+        </div>
+        <div>
+            <div class="fa-solid fa-clock"></div>
+            <span>Mon-Sat : 08:00- 23:00</span>
+        </div>
+    </div>
+
+    <div class="info-one">
+        <marquee>
+            <span >lorem</span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi eius minus ab.
+        </marquee>
+    </div>
+    <div class="info-one">
+
+        <div class="fas fa-shopping-cart"></div>
+        <span>Cart : 0 Items - $0:00</span>
+    </div>
+    
+    {% if user.is_authenticated %}
+    <div class="info-one">
+        <h3>welcome , {{user.username}}</h3>
+        <div class="info-one">
+            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+    {% else %}
+        <div class="info-one">
+            <a href="{% url 'accounts:signin' %}">Sing IN</a>
+        </div>
+    {% endif %}
+    </div>
+
+
+    <header>
+        <div class="logo">
+           <!-- <img src="image-home-info/logo.jpg" alt=""> -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Book A Table</a></li>
+                <li><a href="#">Restaurant Menu</a></li>
+                <li><a href="#">Reservation</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="link">
+            <a href="#">Shop Now</a>
+        </div>
+    </header>
+    <div class="big-bg">
+       
+        <!-- <h1>The Meat Factory</h1> -->
+      
+    </div>
+
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

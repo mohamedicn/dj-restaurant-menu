@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from accounts.models import *
-from .models import BookATable,Restaurantmenu,FoodDelivery,Order,OrderDetails
+from payment.models import PageAddress
+from .models import BookATable,Restaurantmenu,Order,OrderDetails
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 # from django.http import HttpResponse
@@ -17,7 +18,7 @@ from django.http import Http404, HttpResponse, HttpResponseForbidden
 # @login_required(login_url='/accounts/signin')
 def add_to_cart(request):
     if request.user.is_authenticated:
-        if 'product' in request.GET and  'product_price' in request.GET and  'qty' in request.GET:
+        if 'product' in request.GET and 'product_price' in request.GET and 'qty' in request.GET:
             product= request.GET['product']
             qty= request.GET['qty']
             order= Order.objects.all().filter(user=request.user,is_finished=False)
@@ -54,6 +55,19 @@ def add_to_cart(request):
     
         messages.error(request,'You Must Be Login')
         return redirect ('/restaurantMenu')
+
+from django.core.exceptions import ObjectDoesNotExist
+def remove_from_Cart(request,orderdetials_id):
+    try:
+        orderdetials = OrderDetails.objects.get(id=orderdetials_id)
+        if request.user.id == orderdetials.order.user.id:
+            orderdetials.delete()
+            return redirect('/restaurantMenu')
+        else:
+            return HttpResponseForbidden("You don't have permission to edit this cart.")
+    except ObjectDoesNotExist:
+        return HttpResponseNotFound("OrderDetails not  found.")
+
 
 # Create your views here.
 def Home(request):
@@ -102,18 +116,56 @@ def RestaurantMenu(request):
 @login_required(login_url='/accounts/signin')
 def Reservation(request):
     # You Are In Page Reservation
-    if request.method == 'POST':
-        Name = request.POST.get('name')
-        Address = request.POST.get('address')
-        Phone = request.POST.get('phone')
-        NotesIfAny = request.POST.get('text')
-        fooddelivery = FoodDelivery.objects.create(Name=Name, Address=Address, Phone=Phone,NotesIfAny=NotesIfAny)
-        context = {'fooddelivery': fooddelivery}
-        return render(request,'food/reservation.html',context)
-    else:
-        return render(request,'food/reservation.html')
+    
+    static_adress=Address.objects.filter(user=request.user.profile)
+    existing_page_address = PageAddress.objects.filter(user=request.user, order_address__is_finished=False).last()
+
+    if existing_page_address is not None:
+        # User has already added an address for the order
+        
+        return redirect('/payment')
+    address=None
+    phone=None
+    not_if_any=None
+    if request.method=='POST':
+        address=request.POST['address']
+        phone=request.POST['phone']
+        not_if_any=request.POST['not_if_any']
+        order_address=Order.objects.filter(user=request.user).last()
+        page_address=PageAddress(
+                        user=request.user,
+                        address=address,
+                        phone=phone,
+                        not_if_any=not_if_any,
+                        order_address=order_address)
+        page_address.save()
+        return redirect('/payment')
+    context={'static_adress':static_adress}
+    return render(request,'food/reservation.html',context)
+
+
+
+
+
+
+
+
+
+
+    
+    # if request.method == 'POST':
+    #     Name = request.POST.get('name')
+    #     Address = request.POST.get('address')
+    #     Phone = request.POST.get('phone')
+    #     NotesIfAny = request.POST.get('text')
+    #     fooddelivery = FoodDelivery.objects.create(Name=Name, Address=Address, Phone=Phone,NotesIfAny=NotesIfAny)
+    #     context = {'fooddelivery': fooddelivery}
+    #     return render(request,'food/reservation.html',context)
+    # else:
+    #     return render(request,'food/reservation.html')
     
 
 
 # foreign key in Django 
 # context_processors.py
+

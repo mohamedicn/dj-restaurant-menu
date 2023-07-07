@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+/* font-family: 'Lobster', cursive; */
+
+*{
+    
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;border: none;
+    text-decoration: none; 
+    text-transform: capitalize;
+    transition: 0.2s linear;
+    list-style-type: none;
+}
+
+html{
+    font-size: 16px;
+}
+
+
+
+.beg-info{
+    width: 100%;
+    color: #fff;
+    font-size: 0.825rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    margin-top: 1rem;
+}
+
+
+.beg-info .info-one{
+    display: flex;
+}
+
+
+.info-one div:first-child{
+    margin-right: 0.5rem;
+}
+
+
+.info-one marquee span{
+    font-size: 0.7rem;
+    color: #fff;
+    background: #821f05;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.3rem;
+}
+
+.info-one .fa-shopping-cart,.fa-solid{
+    font-size: 1.3rem;
+}
+.info-one a{
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 1.8rem;
+    color: #FFF;
+    font-weight: 550;
+    background-color: #821f05;
+    font-style: italic;
+    transition: 0.5s;
+}
+.info-one a:hover{
+color: #000;
+background-color: white;
+cursor: pointer;
+}
+
+
+header{
+    width: 100%;    
+    padding: 1rem 3rem;
+    position: absolute;
+    top: 3rem;
+    z-index: 1000;  
+    width: 100%;
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;   
+}
+
+header .logo img {
+    width: 50%;
+}
+
+header nav ul{
+    display: flex;
+    margin-left: -18rem;
+    
+}
+header nav ul li{
+    margin: 0 1rem;
+}
+header nav ul a{
+    color: #FFF;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 550;
+    transition: 0.2s ease-in-out;
+}
+header nav ul a:hover{
+    color: #821f05;
+}
+
+header .link a{
+    color: #FFF;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 550;
+    padding: 0.3rem 0.5rem;
+    transition: 0.4s ease-in-out;
+    border: 0.1rem solid white;
+    border-radius: 0.3rem;
+}
+header .link a:hover{
+    background: #821f05;
+}
+
+
+.big-bg{
+    background-image: url(../img/image-home/0.jpg);
+    background-position: center center ;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+
+.big-bg h1{
+    width: 100%;
+    height: 2rem;
+    color: #706f6f;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 0.1rem;
+    font-size:4rem;
+    /* position: absolute;
+    top: 36%;
+    left:35%; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries  */
+@media(max-width:1320px){
+    html{
+        font-size: 15.5px;
+    }
+}
+@media(max-width:991px){
+    html{
+        font-size: 15px;
+    }
+}
+@media(max-width:768px){
+    html{
+        font-size: 14.5px;
+    }
+}
+@media(max-width:450px){
+    html{
+    font-size: 14px;
+    }
+}

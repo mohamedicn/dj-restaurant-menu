@@ -76,7 +76,8 @@ body {
                                         <input type="hidden" name="product_price" value="{{rest.Price}}">
                                         <button>Add</button>
                                     </form>
-                                    <button>Decrease</button>
+                                    
+                                    
                                 </div>
                             </div>
                             
@@ -100,8 +101,14 @@ body {
                                 </div>
                                 <article>Category: {{ rest.Category }}</article>
                                 <div class="btn-Add">
-                                    <button">Add</button>
-                                    <button">Decrease</button>
+                                    <form action="{% url 'foodmenu:add_to_cart' %}">
+                                        <input class="input--style-4" type="number" name="qty" value="1" >
+                                        <input type="hidden" name="product" value="{{rest.slug}}">
+                                        <input type="hidden" name="product_price" value="{{rest.Price}}">
+                                        <button>Add</button>
+                                    </form>
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -123,8 +130,14 @@ body {
                                 </div>
                                 <article>Category: {{ rest.Category }}</article>
                                 <div class="btn-Add">
-                                    <button">Add</button>
-                                    <button">Decrease</button>
+                                    <form action="{% url 'foodmenu:add_to_cart' %}">
+                                        <input class="input--style-4" type="number" name="qty" value="1" >
+                                        <input type="hidden" name="product" value="{{rest.slug}}">
+                                        <input type="hidden" name="product_price" value="{{rest.Price}}">
+                                        <button>Add</button>
+                                    </form>
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -144,6 +157,7 @@ body {
                     <h2>Would you like to deliver selected foods?</h2>
                     <p>If you want to connect, click Yes Otherwise press no</p>
                     <a href="{% url 'foodmenu:reservation' %}"  onclick="ClosePopup()">Yes</a>
+                    <a href="{% url 'payment:payment' %}"  onclick="ClosePopup()">No</a>
                     {% comment %} w<a href="{% url 'payment:payment' %}" onclick="ClosePopup()">No</a> {% endcomment %}
                     <a onclick="ClosePopup()">Exit</a>
                 </div>

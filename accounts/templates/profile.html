@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    SOUQ/Profile/{{profile.user.username}} 
+{% endblock %}
+{% block body %}
+    <main class="mt-5 pt-4">
+        <div class="container dark-grey-text mt-5">
+          <div class="row">
+            <div class="container ">
+            <div class="row mt-5">
+              <div class="profile-imgg col-md-12">
+                {% if profile.image  %}
+                <img class="profile-img" src="{{profile.image.url}}" alt="card-img-top">
+                {% else %}
+                  <img class="profile-img-defult" src="{% static 'img/user_no_image.png' %}" alt="card-img-top">
+                  
+                {% endif %}
+                
+              </div>
+              <div class="info mt-4 col-md-12">
+                <h6><i class="fa-solid fa-signature"></i> Name : {{profile.user.first_name}} {{profile.user.last_name}} </h6>
+                <h6><i class="fa-solid fa-envelope"></i> Email : {{profile.user.email}} </h6>
+                <h6><i class="fa-solid fa-phone"></i> Phone : {{profile.phone}} </h6>
+                <h6><i class="fa-solid fa-earth-americas"></i> Country : {{profile.country.name}} </h6>
+                <h6><i class="fa-sharp fa-solid fa-city"></i> City : {{profile.adress}} </h6>
+                <a href="{% url 'accounts:edit' slug=user.profile.slug%}"></a>
+                <a class="btn btn-outline-success-modify my-2 my-sm-0" href="{% url 'accounts:edit' slug=user.profile.slug%}">Edit Profile</a>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="container">
+            <div class="row mt-4">
+              <h3 class="p-2 mb-4" style="background-color: #2196f3;">My Order</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Order Number</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Order delivery date</th>
+                  </tr>
+                </thead>
+                {% for order_dict in orders %}
+                  <tbody>
+                    <tr>
+                      <th scope="row">{{forloop.counter}}</th>
+                      <td>{{order_dict.order.id}}</td>
+                      <td>{{order_dict.total}}$</td>
+                      {% if order_dict.order.is_finished %}
+                        <td><img src="/static/admin/img/icon-yes.svg" style="height: 20px;width:20px" alt="True"></td>
+                      {% else %}
+                        <td><img src="/static/admin/img/icon-no.svg" style="height: 20px;width:20px" alt="False"></td>
+                      {% endif %}
+                      {% if order_dict.order.is_finished %}
+                        {% if order_dict.delivery_date %}
+                          <td>{{ order_dict.delivery_date }}</td>
+                        {% else %}
+                          <td>we need to check some details .</td>
+                        {% endif %}
+                      {% else %}
+                        <td>you must be payment frist .</td>
+                      {% endif %}
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+                </table>
+                <hr>
+            </div>
+          </div>
+          </div>
+        </div>
+    </main>
+{% endblock body %}
+    

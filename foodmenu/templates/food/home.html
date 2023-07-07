@@ -59,16 +59,16 @@
         </div>
         <nav>
             <ul>
-                <li><a  href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'booktable' %}">Book A Table</a></li>
-                <li><a href="{% url 'restaurantMenu' %}">Restaurant Menu</a></li>
-                <li><a href="{% url 'reservation' %}">Reservation</a></li>
+                <li><a href="{% url 'foodmenu:home' %}">Home</a></li>
+                <li><a href="{% url 'foodmenu:booktable' %}">Book A Table</a></li>
+                <li><a href="{% url 'foodmenu:restaurantMenu' %}">Restaurant Menu</a></li>
+                <li><a href="{% url 'foodmenu:reservation' %}">Reservation</a></li>
                 <li><a href="{% url 'setteings:aboutus' %}">About Us</a></li>
             </ul>
         </nav>
 
         <div class="link">
-            <a href="{% url 'restaurantMenu' %}">Shop Now</a>
+            <a href="{% url 'foodmenu:restaurantMenu' %}">Shop Now</a>
         </div>
     </header>
     <div class="big-bg">

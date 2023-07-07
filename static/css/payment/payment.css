@@ -49,66 +49,7 @@ color: white ;
 }
 
 
-/* Styles for the product container */
-.product {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: transparent ;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 12rem;
-    height: 20vh;
-  }
-  
-  /* Styles for the product name */
-  .product h3 {
-    color: white ;
-    font-size: 1rem;
-    margin: 0.3rem 0 ;
-  }
-  
-  /* Styles for the product price */
-  .product section {
-    color: white ;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-  .product section::before {
-    content: 'Price : ';
-  }
-  .product section::after {
-    content: ' $';
-  }
-  /* Styles for the product category */
-  .product article {
-    color: white ;
-    font-size: 1rem;;
-    margin-bottom: 16px;
-    font-weight: 500;
-  }
-  .product article::before {
-    content: 'Category : ';
-  }
-  
 
-.product button {
-    padding: 8px;
-    background-color: #ff8000;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;    
-    font-weight: bold;
-}
-.product button:hover{
-    transform: scale(1.1);
-    background-color: black;
-    color: #ff8000;
-    border: 0.1rem solid #fff;
-}
   
 .left {
     width: 38rem;
@@ -121,6 +62,12 @@ color: white ;
     align-items: center;
     justify-content: center;
 }
+
+.payment-form {
+  display: none; /* Hide all payment forms by default */
+}
+
+
 .left .title-left h3{
     color: white ;
     font-size: 1.4rem;
@@ -151,3 +98,49 @@ color: white ;
     transform: scale(1.2);
     cursor: pointer;
   }
+
+  .payment-form {
+    width: 70%;
+    height: 75vh;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
+  
+  .payment-form h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

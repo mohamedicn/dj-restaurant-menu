@@ -1,22 +1,5 @@
 const addresses = document.querySelectorAll('#addresses address');
-const result = document.getElementById('result');
 const addressFrom = document.getElementById('address-from');
-
-
-addresses.forEach((address, index) => {
-  address.addEventListener('click', () => {
-    const distance = (index + 1) * 1; // assume each address is 1 km apart
-    const time = distance * 6 + 30; // 6 minutes per km + 30 minutes preparation
-    const cost = distance * 0.75;
-    result.innerText = `Meal will be delivered in ${time} minutes \nand cost $${cost.toFixed(2)}`;
-    result.style.backgroundColor = '#FFF';
-    result.style.textAlign = 'center';
-    // setTimeout(() => {
-    //   result.style.display = 'none';
-    // }, 5000); // Hide the result after 5 seconds
-  });
-});
-
 
 addresses.forEach((address) => {
   address.addEventListener('click', () => {
@@ -26,6 +9,32 @@ addresses.forEach((address) => {
 
 
 
+// function checkAndSaveFormData() {
+//   // Get form values
+//   var address = document.getElementById("address-from").value;
+//   var phone = document.getElementById("phone").value;
+//   var notes = document.getElementById("text").value;
+
+//   // Check if any of the required fields are empty
+//   if ( address !== "" && phone !== "") {
+//     // Create an object to store form data
+//     var formData = {
+//       address: address,
+//       phone: phone,
+//       notes: notes
+//     };
+
+//     // Check if there are more than 6 objects in local storage
+//     if (localStorage.length > 6) {
+//       // Clear the entire local storage
+//       localStorage.clear();
+//     }
+//     for (let index = 1; index <= 3; index++) {
+//       localStorage.setItem("formData"+index, JSON.stringify(formData));
+//     }
+//     // Store form data in local storage
+//   }
+// }
 
 
 
@@ -42,7 +51,4 @@ addresses.forEach((address) => {
 
 
 
-
-
-
-// ₺
+// // // ₺

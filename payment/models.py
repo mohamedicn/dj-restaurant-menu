@@ -1,16 +1,15 @@
 from django.db import models
 from foodmenu.models import Order
+from foodmenu.order_context_processors import *
+from accounts.models import *
 from django.contrib.auth.models import User
 from audioop import reverse
 from django.utils.translation import gettext_lazy as _
 from datetime import datetime
 from creditcards.models import CardNumberField,CardExpiryField,SecurityCodeField
+from django.db.models.signals import post_save
+
 # Create your models here.
-
-class Payment(models.Model):
-    pass
-
-
 
 class Checkout(models.Model):
     """Model definition for Checkout."""
@@ -30,4 +29,55 @@ class Checkout(models.Model):
     class Meta:
         verbose_name = 'Payment'
         verbose_name_plural = 'Payments'
+    
+    
+    
+    
+    
+    
+    
+class PageAddress(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    order_address= models.ForeignKey(Order, on_delete=models.CASCADE,null=True)
+    address = models.CharField(max_length=50,default = "None")
+    phone = models.CharField(max_length=50,default = "None")
+    not_if_any = models.CharField( max_length=50,default = "None")
+    
+    def __str__(self):
+        return 'user : ' + str(self.user) + '  ===> ' + 'address : ' + str(self.address) + '  ===> ' +' phone: ' + str(self.phone)
+    
+    
+    
+class PayPalPayment(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    card_number = models.CharField(max_length=16)
+    expiration = models.CharField(max_length=10)
+    cvv = models.CharField(max_length=4)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    total = models.IntegerField(default=0)
+    page_address= models.ForeignKey(PageAddress, on_delete=models.CASCADE,null=True)
+    
+    
+class PTTBankPayment(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    account_number = models.CharField(max_length=20)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    total = models.IntegerField(default=0)
+    page_address= models.ForeignKey(PageAddress, on_delete=models.CASCADE,null=True)
+    
+    
+    
+    
+class MasterCartPayment(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    card_number = models.CharField(max_length=16)
+    expiration = models.CharField(max_length=10)
+    cvv = models.CharField(max_length=4)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    total = models.IntegerField(default=0)
+    page_address= models.ForeignKey(PageAddress, on_delete=models.CASCADE,null=True)
     

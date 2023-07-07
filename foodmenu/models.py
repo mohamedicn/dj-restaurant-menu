@@ -8,14 +8,8 @@ from datetime import datetime
 from django.utils.text import slugify
 
 
+
 # Create your models here.
-
-
-
-
-
-
-
 class Food(models.Model):
     name_food = models.CharField(max_length= 35) 
     contant_food = models.TextField()
@@ -34,7 +28,6 @@ class BookATable(models.Model):
     
     
 class Restaurantmenu(models.Model):
-    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     Name = models.CharField(max_length=40)
     Price = models.DecimalField(max_digits=5,decimal_places=2)
     Image = models.ImageField(upload_to='photos/RestaurantMenu/%y/%m/%d')
@@ -54,7 +47,8 @@ class Order(models.Model):
     order_date= models.DateTimeField(verbose_name=_("Created At"), default=datetime.now)
     detils = models.ManyToManyField(Restaurantmenu )
     is_finished = models.BooleanField()
-
+    def __str__(self):
+        return 'User : ' + str(self.user) + ' ==>' + 'is_finished : ' + str(self.is_finished)
 
 
 
@@ -93,25 +87,11 @@ class CharOrURLField(models.CharField):
         except:
             return False
 
-
-
-class FoodDelivery(models.Model):
-    Name = models.CharField(max_length=40)
-    Phone = models.CharField(max_length=50)
-    NotesIfAny = models.TextField(max_length=100)
-    Address = CharOrURLField(max_length=255) # Char or URL field 
-    
-
-
-
-
-
-
-
-
-
-
-
+# class FoodDelivery(models.Model):
+#     Name = models.CharField(max_length=40)
+#     Phone = models.CharField(max_length=50)
+#     NotesIfAny = models.TextField(max_length=100)
+#     Address = CharOrURLField(max_length=255) # Char or URL field 
 
 
 

@@ -24,7 +24,9 @@ urlpatterns = [
     path('',include('foodmenu.urls', namespace='foodmenu')),
     path('accounts/', include('accounts.urls' ,namespace='accounts')),
     path('',include('payment.urls')),
-    # path('',include('setteings.urls')),
+    path('',include('setteings.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

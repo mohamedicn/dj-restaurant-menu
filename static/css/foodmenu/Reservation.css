@@ -88,11 +88,17 @@ html{
 
 
 .inside-addresses{
-    width: 24rem;
+    width: 14rem;
     height: 16vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+
+.inside-addresses .cost,.time{
+    font-weight: 800;
+    color: black;
 }
 
 address {

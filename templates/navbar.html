@@ -50,7 +50,8 @@
         <div class="cart-items-container">
             {% for detail in orderdetails  %}
                 <div class="cart-item">
-                    <span class="fas fa-times"></span>
+                   
+                    <a href="{% url 'foodmenu:remove_from_Cart' detail.id %}"> <span class="fas fa-times"></span></a>
                     <img src="{{ detail.product.Image.url }}">
                     <div class="content">
                         <h3>name: {{detail.product}}</h3>
@@ -59,8 +60,8 @@
                     </div>
                 </div>
             {% endfor %}
-
-            <a href="#" class="btn-queries">Add To Cart</a>
+            <!-- href="{% url 'foodmenu:restaurantMenu' %}"> -->
+            <a href="{% url 'foodmenu:restaurantMenu' %}" class="btn-queries">Add To Cart</a>
         </div>
     </header>
     <!-- ==========Ends Header========== -->
@@ -73,3 +74,10 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
