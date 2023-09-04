@@ -58,6 +58,8 @@ class PayPalPayment(models.Model):
     total = models.IntegerField(default=0)
     page_address= models.ForeignKey(PageAddress, on_delete=models.CASCADE,null=True)
     
+    def __str__(self):
+        return 'name : ' + str(self.name) + '  ===> ' + 'email : ' + str(self.email) + '  ===> ' +' total : ' + str(self.total)
     
 class PTTBankPayment(models.Model):
     name = models.CharField(max_length=100)
@@ -67,6 +69,9 @@ class PTTBankPayment(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     total = models.IntegerField(default=0)
     page_address= models.ForeignKey(PageAddress, on_delete=models.CASCADE,null=True)
+    
+    def __str__(self):
+        return 'name : ' + str(self.name) + '  ===> ' + 'email : ' + str(self.email) + '  ===> ' +' total : ' + str(self.total)
     
     
     
@@ -80,4 +85,7 @@ class MasterCartPayment(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     total = models.IntegerField(default=0)
     page_address= models.ForeignKey(PageAddress, on_delete=models.CASCADE,null=True)
+    
+    def __str__(self):
+        return 'name : ' + str(self.name) + '  ===> ' + 'email : ' + str(self.email) + '  ===> ' +' total : ' + str(self.total)
     

@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse, HttpResponseForbidden
+from django.http import HttpResponseNotFound
 # from.models import Checkout
 
 # @login_required(login_url='/accounts/signin')

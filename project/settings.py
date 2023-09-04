@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-h+osloo0tecxmobsdcgt0@ib$!%ehi!t2tb6c-9qan=r3uro==
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +42,16 @@ INSTALLED_APPS = [
     'foodmenu.apps.FoodmenuConfig',
     'setteings.apps.SetteingsConfig',
     'payment.apps.PaymentConfig',
+    
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -60,9 +70,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [ os.path.join(BASE_DIR,'templates'),
-                  os.path.join(BASE_DIR,'accounts/templates'),
-                  os.path.join(BASE_DIR,'setteings/templates'),
-                  os.path.join(BASE_DIR,'foodmenu/templates'),             
+                    os.path.join(BASE_DIR,'accounts/templates'),
+                    os.path.join(BASE_DIR,'setteings/templates'),
+                    os.path.join(BASE_DIR,'foodmenu/templates'),             
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
